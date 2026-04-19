@@ -1,0 +1,80 @@
+.signature-line img {
+  max-height: 100%;
+}
+
+.signature-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 5px;
+}
+
+.modal-content {
+  background: rgb(255, 255, 255);
+  padding: 20px;
+  border-radius: 12px;
+  width: min(100%, 440px);
+}
+
+.signature-canvas {
+  border: 1px solid rgb(204, 204, 204);
+  margin-top: 10px;
+  width: 100%;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.signature-btn {
+  padding: 7px 10px;
+  border-radius: 10px;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  display: grid;
+  place-items: center;
+}
+
+.btn-clear-icon {
+  background: rgb(254, 242, 242);
+  color: rgb(220, 38, 38);
+  font-size: 20px;
+}
+
+.btn-clear-icon:hover {
+  background: rgb(254, 226, 226);
+}
+
+.btn-clear-icon:active, .btn-close-icon:active{
+    transform: scale(0.93);
+}
+
+.btn-save {
+  background: rgb(34, 197, 94);
+  color: rgb(255, 255, 255);
+  padding: 10px 17px;
+}
+
+.btn-save:hover {
+  background: rgb(22, 163, 74);
+}
+
+.btn-close-icon {
+  background: rgb(229, 231, 235);
+  color: #374151;
+  font-size: 22px;
+}
+
+.btn-close-icon:hover {
+  background: rgb(209, 213, 219);
+}

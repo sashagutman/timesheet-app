@@ -1,0 +1,94 @@
+.alert-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.alert-wrapper {
+  border: 1px solid rgba(178, 178, 178, 0.4);
+  width: 300px;
+  padding: 20px;
+  border-radius: var(--radius);
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  margin: 0 auto;
+}
+
+.alert-message {
+  font-size: 14px;
+  text-align: center;
+  color: var(--muted);
+  margin: 0 0 20px;
+}
+
+.alert-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.alert_btn {
+  padding: 10px 20px;
+  border-radius: 5px;
+  min-width: 70px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 14px;
+}
+
+.btn-confirm {
+  background-color: rgba(16, 153, 101);
+  color: rgb(255, 255, 255);
+}
+
+.btn-confirm:hover {
+  background-color: rgb(28, 174, 118);
+  transform: translateY(-1px);
+}
+
+.btn-cancel {
+  background-color: rgb(228, 35, 96);
+  color: white;
+}
+
+.btn-cancel:hover {
+  background-color: rgb(233, 84, 131);
+  transform: translateY(-1px);
+}
+
+/* В alert-dialog.css */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.alert-overlay {
+  animation: fadeIn 0.2s ease-out;
+}
+
+.alert-wrapper {
+  animation: slideIn 0.3s ease-out;
+}

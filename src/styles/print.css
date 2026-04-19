@@ -1,0 +1,123 @@
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 8mm;
+  }
+
+  .employee-bar {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    /* чтобы не переносило */
+    gap: 12px !important;
+    align-items: flex-start !important;
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+
+  .employee-bar__item {
+    flex: 1 1 0 !important;
+    /* 3 блока в ряд */
+    min-width: 0 !important;
+    /* важно, иначе может переносить */
+  }
+
+  .employee-bar__value {
+    white-space: nowrap !important;
+  }
+
+  .summary-card {
+    padding: 1px;
+  }
+
+  .summery-card__info{
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+
+  .summary-card__value {
+    font-size: 16px;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-area {
+    width: 100%;
+    zoom: 0.85;
+  }
+
+  .timesheet-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .timesheet-table tr {
+    font-size: 13px;
+  }
+
+  .timesheet-table td {
+    padding: 0px 14px;
+  }
+
+  .timesheet-table thead th {
+    padding: 3px 14px;
+    font-size: 13px;
+  }
+
+  .print-head {
+    font-size: 10px !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .print-only {
+    display: inline;
+  }
+
+  .screen-only {
+    display: none !important;
+  }
+
+  tr {
+    break-inside: avoid !important;
+    page-break-inside: avoid;
+  }
+
+  .hours-cell__controls {
+    display: none !important;
+  }
+
+  input,
+  select {
+    min-height: 0 !important;
+  }
+
+  .print-only {
+    display: inline;
+  }
+
+  .screen-only {
+    display: none !important;
+  }
+
+}
+
+/* по умолчанию */
+.print-only {
+  display: none;
+}
+
+.screen-only {
+  display: inline-block;
+}
+
+@media print {
+  .print-only {
+    display: inline;
+  }
+
+  .screen-only {
+    display: none !important;
+  }
+}

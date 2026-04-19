@@ -1,0 +1,195 @@
+:root {
+  --border: #dce0e8;
+  --border-focus: #6366f1;
+  --icon-color: #4f52f2;
+  --bg: #ffffff;
+  --text: #101828;
+  --muted: #667085;
+  --radius: 7px;
+  --bg-button: #6265e9;
+  --link-color: #4f52f2;
+}
+
+.timesheet__wrapper{
+  width: min(900px, 100%);  
+  margin: 0 auto;
+  padding: clamp(16px, 2vw, 24px);
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.timesheet-form{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)); /* 2 колонки */
+  gap: 14px;
+  padding: 20px 0 16px;
+}
+
+.form-group{
+  min-width: 0;
+}
+
+.form-group--full{
+  grid-column: 1 / -1; /* на всю строку */
+}
+
+@media (max-width: 640px){
+  .timesheet-form{
+    grid-template-columns: 1fr;
+  }
+  .send-button{
+    width: 100%;
+  }
+}
+
+
+.form-group__label{
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    color: var(--text);
+}
+
+.form-group__label span{
+    margin: 0 10px;
+}
+
+.form-group__label svg{
+    color: var(--icon-color);
+}
+
+
+input,
+select,
+textarea {
+  width: 100%;
+  height: 46px;
+  padding: 10px 12px;
+  font: inherit;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.18);
+}
+
+input:disabled,
+select:disabled,
+textarea:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+    border-color: var(--border-focus);
+    background-color: rgba(99, 102, 241, 0.05);
+}
+
+/* button */
+.send-button{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 10px 16px;
+}
+
+.send-button svg{
+  color: var(--icon-color);
+  font-size: 18px;
+}
+
+.send-button__icon{
+  width: 20px;
+  height: 20px;
+}
+
+.send-button:active{
+  transform: scale(0.98);
+}
+
+.timesheet__bottom{
+    display: flex;
+    justify-content: center;    
+}
+
+/* react-select (classNamePrefix="rs") */
+.rs__control{
+  min-height: 46px;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius) !important;
+  box-shadow: none !important;
+}
+
+.rs__control:hover{
+  border-color: var(--border-focus) !important;
+  background-color: rgba(99, 102, 241, 0.05);
+}
+
+.rs__control--is-focused{
+  border-color: var(--border-focus) !important;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.18) !important;
+}
+
+.rs__value-container{
+  padding: 0 10px !important;
+}
+
+.rs__placeholder{
+  color: var(--muted) !important;
+  font-size: 11px !important;
+}
+
+.rs__menu{
+  border-radius: var(--radius) !important;
+  border: 1px solid var(--border) !important;
+  overflow: hidden;
+}
+
+.rs__option--is-focused{
+  background: rgba(99, 102, 241, 0.08) !important;
+}
+
+.rs__option--is-selected{
+  background: rgba(99, 102, 241, 0.35) !important;
+}
+
+.rs__multi-value{
+  background: rgba(99, 102, 241, 0.12) !important;
+  border-radius: 999px !important;
+}
+
+.rs__multi-value__label{
+  color: var(--text) !important;
+  font-weight: 600;
+}
+
+.rs__multi-value__remove:hover{
+  background: rgba(99, 102, 241, 0.18) !important;
+  color: var(--text) !important;
+  border-radius: 999px !important;
+
+}

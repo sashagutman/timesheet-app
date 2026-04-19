@@ -1,0 +1,118 @@
+.timesheet-table__wrapper{
+  overflow-x: auto;
+  overflow-y: visible;
+}
+
+.timesheet-table{
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.timesheet-table thead th{
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.timesheet-table td{
+  padding: 4px 14px;
+  border-bottom: 1px solid #f0f0f0;
+  vertical-align: middle;
+}
+
+.date-cell{
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+}
+
+.date-cell__date{
+  font-weight: 600;
+  color: rgb(1, 113, 113);
+}
+
+.date-cell__day{
+  color: var(--muted);
+}
+
+.status-select{
+  height: 25px;
+  width: 150px;
+  font-size: 12px;
+  padding: 0 8px; 
+  appearance: auto;
+  -webkit-appearance: menulist;
+}
+
+.status-select option{
+  color: var(--text);
+  background: #fff;
+}
+
+/* Часы с маленькими +/- */
+.hours-cell__value{
+  font-weight: 600;
+}
+
+.hours-cell{
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 4px;
+}
+
+.hours-cell__controls{
+  display: flex;
+  gap: 4px;
+}
+
+.hours-cell__btn{
+  width: 28px;
+  height: 24px;
+  border: 1px solid var(--border);
+  font-weight: 900;
+}
+
+.cell-btn__minus:hover{
+    background-color: rgb(255, 0, 0, 0.3);
+}
+
+.cell-btn__plus:hover{
+    background-color: rgb(0, 128, 0, 0.3);
+}
+
+.hours-cell__btn:active{
+    transform: scale(0.94);
+    background-color: #d7d6d6;
+}
+/* С—До */
+.fromto-cell{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.fromto-cell__time{
+  font-weight: 600;
+}
+
+.fromto-cell__dash{
+  color: var(--muted);
+}
+
+.error-message{
+  padding: 20px;
+  background-color: rgb(105, 107, 239, 0.2);
+  color: rgb(48, 46, 47);
+  border-radius: var(--radius);
+  text-align: center;
+}
+
+.error-link{
+  background-color: rgb(227, 227, 241);
+}
+
+.error-link:active{
+  transform: scale(0.96);
+}

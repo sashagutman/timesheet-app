@@ -1,0 +1,50 @@
+.header__inner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header__icon{
+    width: 64px;
+    height: 64px;
+    margin-bottom: 10px;
+    background-color: rgb(224, 231, 255);
+    border-radius: 15px;
+    display: grid;
+    place-items: center;
+}
+
+.header__icon svg{
+    width: 32px;
+    height: 32px;
+    color: rgb(79, 70, 229);
+    font-weight: 800;
+}
+
+.header__title{
+   font-size: 1.875rem;
+   color: rgb(15, 23, 42);
+   margin-bottom: 5px;
+}
+
+.header__subtitle{
+    color: rgb(100, 116, 139);
+    font-size: 1.125rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.t-actions{
+    display: flex;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.t-btn{
+    border-radius: 0;
+}
+
+.t-btn:active{
+    background-color: rgb(206, 198, 198, 0.4);
+    transform: scale(0.96);
+}
