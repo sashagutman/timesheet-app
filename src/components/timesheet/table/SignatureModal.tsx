@@ -47,6 +47,8 @@ const SignatureModal: FunctionComponent<SignatureModalProps> = ({
   };
 
   const startDrawing = (event: PointerEvent<HTMLCanvasElement>) => {
+    event.preventDefault()
+
     const canvas = canvasRef.current;
     const context = getCanvasContext();
     const position = getPointerPosition(event);
@@ -62,6 +64,8 @@ const SignatureModal: FunctionComponent<SignatureModalProps> = ({
   };
 
   const draw = (event: PointerEvent<HTMLCanvasElement>) => {
+    event.preventDefault()
+    
     if (!isDrawingRef.current) return;
 
     const context = getCanvasContext();
@@ -114,10 +118,14 @@ const SignatureModal: FunctionComponent<SignatureModalProps> = ({
         <h3>{t("signature.signature")}</h3>
 
         <canvas
+          ref={canvasRef}
+          className="signature-canvas"
+          width={400}
+          height={200}
           onPointerDown={startDrawing}
           onPointerMove={draw}
           onPointerUp={stopDrawing}
-          onPointerLeave={stopDrawing}
+          onPointerCancel={stopDrawing}
         />
 
         <div className="modal-actions">
