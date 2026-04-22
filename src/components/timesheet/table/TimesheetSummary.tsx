@@ -30,7 +30,6 @@ const TimesheetSummary: FunctionComponent<TimesheetSummaryProps> = ({ days, sett
   };
 
   return (
-    <div className="container">
       <div className="timesheet-summary">
         <div className="timesheet-summary__cards">
           <div className="summary-card">
@@ -98,7 +97,6 @@ const TimesheetSummary: FunctionComponent<TimesheetSummaryProps> = ({ days, sett
           )}
         </div>
       </div>
-    </div>
   );
 };
 
