@@ -4,6 +4,11 @@
     margin: 8mm;
   }
 
+  .timesheet-summary__cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 8px;
+  }
+
   .employee-bar {
     display: flex !important;
     flex-wrap: nowrap !important;
@@ -29,7 +34,7 @@
     padding: 1px;
   }
 
-  .summery-card__info{
+  .summary-card__info{
     display: flex;
     align-items: center;
     gap: 7px;
@@ -58,11 +63,11 @@
   }
 
   .timesheet-table td {
-    padding: 0px 14px;
+    padding: 0px 8px;
   }
 
   .timesheet-table thead th {
-    padding: 3px 14px;
+    padding: 3px 8px;
     font-size: 13px;
   }
 

@@ -1,4 +1,4 @@
-import type { FunctionComponent, MouseEvent } from "react";
+import type { FunctionComponent, PointerEvent } from "react";
 import { useRef } from "react";
 import { IoClose } from "react-icons/io5";
 import { MdOutlineCleaningServices } from "react-icons/md";
@@ -31,35 +31,62 @@ const SignatureModal: FunctionComponent<SignatureModalProps> = ({
     return context;
   };
 
-  const startDrawing = (event: MouseEvent<HTMLCanvasElement>) => {
+  const getPointerPosition = (event: PointerEvent<HTMLCanvasElement>) => {
+    const canvas = canvasRef.current;
+    if (!canvas) return null;
+
+    const rect = canvas.getBoundingClientRect();
+
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+
+    return {
+      x: (event.clientX - rect.left) * scaleX,
+      y: (event.clientY - rect.top) * scaleY,
+    };
+  };
+
+  const startDrawing = (event: PointerEvent<HTMLCanvasElement>) => {
+    const canvas = canvasRef.current;
     const context = getCanvasContext();
-    if (!context) return;
+    const position = getPointerPosition(event);
+
+    if (!canvas || !context || !position) return;
 
     isDrawingRef.current = true;
 
-    const { offsetX, offsetY } = event.nativeEvent;
+    canvas.setPointerCapture(event.pointerId);
+
     context.beginPath();
-    context.moveTo(offsetX, offsetY);
+    context.moveTo(position.x, position.y);
   };
 
-  const draw = (event: MouseEvent<HTMLCanvasElement>) => {
+  const draw = (event: PointerEvent<HTMLCanvasElement>) => {
     if (!isDrawingRef.current) return;
 
     const context = getCanvasContext();
-    if (!context) return;
+    const position = getPointerPosition(event);
 
-    const { offsetX, offsetY } = event.nativeEvent;
-    context.lineTo(offsetX, offsetY);
+    if (!context || !position) return;
+
+    context.lineTo(position.x, position.y);
     context.stroke();
   };
 
-  const stopDrawing = () => {
+  const stopDrawing = (event?: PointerEvent<HTMLCanvasElement>) => {
     if (!isDrawingRef.current) return;
 
+    const canvas = canvasRef.current;
     const context = getCanvasContext();
-    if (!context) return;
+
+    if (!canvas || !context) return;
 
     isDrawingRef.current = false;
+
+    if (event) {
+      canvas.releasePointerCapture(event.pointerId);
+    }
+
     context.closePath();
   };
 
@@ -87,21 +114,17 @@ const SignatureModal: FunctionComponent<SignatureModalProps> = ({
         <h3>{t("signature.signature")}</h3>
 
         <canvas
-          ref={canvasRef}
-          width={400}
-          height={200}
-          onMouseDown={startDrawing}
-          onMouseMove={draw}
-          onMouseUp={stopDrawing}
-          onMouseLeave={stopDrawing}
-          className="signature-canvas"
+          onPointerDown={startDrawing}
+          onPointerMove={draw}
+          onPointerUp={stopDrawing}
+          onPointerLeave={stopDrawing}
         />
 
         <div className="modal-actions">
           <button type="button" className="signature-btn btn-clear-icon"
             onClick={clear}
             aria-label={t("signature.clear")}
-            >
+          >
             <MdOutlineCleaningServices />
           </button>
 

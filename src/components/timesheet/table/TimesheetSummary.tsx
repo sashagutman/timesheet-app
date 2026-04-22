@@ -37,7 +37,7 @@ const TimesheetSummary: FunctionComponent<TimesheetSummaryProps> = ({ days, sett
             <div className="summary-card__icon">
               <FaRegCalendarCheck />
             </div>
-            <div className="summery-card__info">
+            <div className="summary-card__info">
               <div className="summary-card__label">{t("summary.workDays")}</div>
               <div className="summary-card__value">{standartWorkDays}</div>
             </div>
