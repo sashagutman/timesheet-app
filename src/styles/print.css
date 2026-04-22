@@ -4,6 +4,15 @@
     margin: 8mm;
   }
 
+  html,
+  body {
+    height: auto;
+  }
+
+  body {
+    overflow: visible !important;
+  }
+
   .timesheet-summary__cards {
     grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
     gap: 8px;
@@ -34,7 +43,7 @@
     padding: 1px;
   }
 
-  .summary-card__info{
+  .summary-card__info {
     display: flex;
     align-items: center;
     gap: 7px;
@@ -49,8 +58,12 @@
   }
 
   .print-area {
-    width: 100%;
-    zoom: 0.85;
+    /* width: 100%;
+    zoom: 0.85; */
+    transform: scale(0.85);
+    transform-origin: top left;
+    height: 100vh;
+    overflow: hidden;
   }
 
   .timesheet-table {
