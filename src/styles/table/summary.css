@@ -1,6 +1,6 @@
-/* .timesheet-summary{
-  padding: 14px;
-} */
+.timesheet-summary{
+  padding: 2px 0;
+}
 
 .timesheet-summary__cards{
   display: grid;
