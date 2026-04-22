@@ -15,6 +15,13 @@
   margin-top: 0;
 }
 
+@media (max-width: 450px) {
+  .link-back {
+  font-size: 11px;
+}
+
+}
+
 .top-bar__actions {
   display: flex;
   flex-wrap: wrap;
