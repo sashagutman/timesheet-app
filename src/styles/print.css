@@ -32,3 +32,30 @@
 .export-mode .no-print {
   display: none !important;
 }
+
+.desktop-export {
+  width: 1120px;
+  max-width: none;
+}
+
+.desktop-export .timesheet-summary__cards {
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+}
+
+.desktop-export .timesheet-signatures {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+}
+
+.desktop-export .employee-bar {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+}
+
+.desktop-export .employee-bar__item {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.desktop-export .timesheet-table {
+  width: 100%;
+}
