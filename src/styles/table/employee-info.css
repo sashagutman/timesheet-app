@@ -9,6 +9,7 @@
 .employee-bar{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
   padding: 14px;
   border-bottom: 1px solid var(--border);
 }
@@ -34,4 +35,17 @@
   font-weight: 600;
   color: var(--text);
   margin-top: 2px;
+  font-size: 14px;
+
+}
+
+@media (max-width: 450px) {
+  .employee-bar{
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.employee-bar__value{
+  font-size: 12px;
+}
+
 }

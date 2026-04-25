@@ -24,8 +24,7 @@
     /* чтобы не переносило */
     gap: 12px !important;
     align-items: flex-start !important;
-    padding-top: 3px;
-    padding-bottom: 3px;
+    padding: 3px 0;
   }
 
   .employee-bar__item {
@@ -37,6 +36,7 @@
 
   .employee-bar__value {
     white-space: nowrap !important;
+    font-size: 12px;
   }
 
   .summary-card {
@@ -67,7 +67,7 @@
   }
 
   .timesheet-table tr {
-    font-size: 13px;
+    font-size: 12px;
   }
 
   .timesheet-table td {
@@ -76,7 +76,7 @@
 
   .timesheet-table thead th {
     padding: 3px 14px;
-    font-size: 13px;
+    font-size: 12px;
   }
 
   .print-head {
