@@ -1,7 +1,7 @@
 {
   "app": {
     "backToForm": "חזרה לטופס",
-    "print": "PDF / הדפסה",
+    "savePng": "שמור PNG",
     "goToTable": "מעבר לטבלת שעות",
     "noData": "אין נתונים. מלא/י קודם את הטופס.",
     "backHome": "חזרה לדף הבית"

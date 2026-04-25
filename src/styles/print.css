@@ -1,126 +1,3 @@
-@media print {
-  @page {
-    size: A4 landscape;
-    margin: 8mm;
-  }
-
-  html,
-  body {
-    height: auto;
-  }
-
-  body {
-    overflow: visible !important;
-  }
-
-  .timesheet-summary__cards {
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    gap: 8px;
-  }
-
-  .employee-bar {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    /* чтобы не переносило */
-    gap: 12px !important;
-    align-items: flex-start !important;
-    padding: 3px 0;
-  }
-
-  .employee-bar__item {
-    flex: 1 1 0 !important;
-    /* 3 блока в ряд */
-    min-width: 0 !important;
-    /* важно, иначе может переносить */
-  }
-
-  .employee-bar__value {
-    white-space: nowrap !important;
-    font-size: 12px;
-  }
-
-  .summary-card {
-    padding: 1px;
-  }
-
-  .summary-card__info {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-  }
-
-  .summary-card__value {
-    font-size: 16px;
-  }
-
-  .no-print {
-    display: none !important;
-  }
-
-  .print-area {
-    transform: scale(0.85);
-  }
-
-  .timesheet-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-
-  .timesheet-table tr {
-    font-size: 12px;
-  }
-
-  .timesheet-table td {
-    padding: 0px 14px;
-  }
-
-  .timesheet-table thead th {
-    padding: 3px 14px;
-    font-size: 12px;
-  }
-
-  .print-head {
-    font-size: 10px !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .print-only {
-    display: inline;
-  }
-
-  .screen-only {
-    display: none !important;
-  }
-
-  tr {
-    break-inside: avoid !important;
-    page-break-inside: avoid;
-  }
-
-  .hours-cell__controls {
-    display: none !important;
-  }
-
-  input,
-  select {
-    min-height: 0 !important;
-  }
-
-  .print-only {
-    display: inline;
-  }
-
-  .screen-only {
-    display: none !important;
-  }
-
-  .notes-block {
-    margin-top: 1px;
-  }
-
-}
-
-/* по умолчанию */
 .print-only {
   display: none;
 }
@@ -129,12 +6,29 @@
   display: inline-block;
 }
 
-@media print {
-  .print-only {
-    display: inline;
-  }
+.export-area {
+  background: rgb(255, 255, 255);
+  padding: 12px;
+}
 
-  .screen-only {
-    display: none !important;
-  }
+/* скрываем интерактив */
+.export-mode .hours-cell__controls {
+  display: none;
+}
+
+.export-mode select {
+  display: none;
+}
+
+/* показываем текст вместо select */
+.export-mode .print-only {
+  display: inline !important;
+}
+
+.export-mode .screen-only {
+  display: none !important;
+}
+
+.export-mode .no-print {
+  display: none !important;
 }

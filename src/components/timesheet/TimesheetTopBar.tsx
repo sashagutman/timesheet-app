@@ -1,23 +1,28 @@
 import { useState, type FunctionComponent } from "react";
 import { GoArrowLeft } from "react-icons/go";
 import { Link } from "react-router-dom";
-import "../../styles/top-bar.css";
-import { GrDocumentPdf } from "react-icons/gr";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import { LuImageDown } from "react-icons/lu";
+
 import AlertDialog from "../../helpers/AlertDialog";
+import "../../styles/top-bar.css";
 import { t } from "i18next";
 
 interface TimesheetTopBarProps {
-  onClearTimesheet: () => void; // очищаем табель
+  onClearTimesheet: () => void;
+  onExportPng: () => void;
 }
 
-const TimesheetTopBar: FunctionComponent<TimesheetTopBarProps> = ({ onClearTimesheet }) => {
+const TimesheetTopBar: FunctionComponent<TimesheetTopBarProps> = ({
+  onClearTimesheet,
+  onExportPng,
+}) => {
   const [showAlert, setShowAlert] = useState(false);
 
   const handleDelete = () => setShowAlert(true);
 
   const handleConfirm = () => {
-    onClearTimesheet();     //  тут очищаем state (и localStorage удалится через useEffect в App)
+    onClearTimesheet();
     setShowAlert(false);
   };
 
@@ -27,7 +32,8 @@ const TimesheetTopBar: FunctionComponent<TimesheetTopBarProps> = ({ onClearTimes
     <>
       <div className="timesheet-top-bar">
         <Link className="link-back link" to="/">
-          <GoArrowLeft />{t("app.backToForm")}
+          <GoArrowLeft />
+          {t("app.backToForm")}
         </Link>
 
         <div className="top-bar__actions">
@@ -35,13 +41,16 @@ const TimesheetTopBar: FunctionComponent<TimesheetTopBarProps> = ({ onClearTimes
             <RiDeleteBin6Line />
           </button>
 
-          <button className="btn btn-print" type="button" onClick={() => window.print()}>
-            <GrDocumentPdf /> <span>{t("app.print")}</span>
+          <button className="btn btn-print" type="button" onClick={onExportPng}>
+            <LuImageDown />
+            <span>{t("app.savePng")}</span>
           </button>
         </div>
       </div>
 
-      {showAlert && <AlertDialog onConfirm={handleConfirm} onCancel={handleCancel} />}
+      {showAlert && (
+        <AlertDialog onConfirm={handleConfirm} onCancel={handleCancel} />
+      )}
     </>
   );
 };

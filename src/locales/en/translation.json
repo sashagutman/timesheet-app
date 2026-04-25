@@ -1,7 +1,7 @@
 {
   "app": {
     "backToForm": "Back to form",
-    "print": "PDF / Print",
+    "savePng": "Save PNG",
     "goToTable": "Go to timesheet table",
     "noData": "No data. Please fill the form first.",
     "backHome": "Back to home"

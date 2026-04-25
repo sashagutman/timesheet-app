@@ -1,11 +1,14 @@
-import type { FunctionComponent } from "react";
 import type { TimesheetData } from "../../types/timesheet";
+import { useRef, type FunctionComponent } from "react";
+import { toPng } from "html-to-image";
 import { Link } from "react-router-dom";
+
 import TimesheetTopBar from "./TimesheetTopBar";
 import WeekendRangeBar from "./WeekendRangeBar";
 import EmployeeInfo from "./table/EmployeeInfo";
 import TimesheetTable from "./table/TimesheetTable";
 import TimesheetSummary from "./table/TimesheetSummary";
+
 import "../../styles/print.css";
 import { t } from "i18next";
 
@@ -18,6 +21,27 @@ const TimesheetPage: FunctionComponent<TimesheetPageProps> = ({
   timesheetData,
   setTimesheetData,
 }) => {
+  const exportRef = useRef<HTMLDivElement | null>(null);
+
+  const handleExportPng = async () => {
+    if (!exportRef.current) return;
+     // включаем режим экспорта
+    exportRef.current.classList.add("export-mode")
+
+    const dataUrl = await toPng(exportRef.current, {
+      cacheBust: true,
+      pixelRatio: 2,
+      backgroundColor: "rgb(255, 255, 255)",
+    });
+    // выключаем режим
+    exportRef.current.classList.remove("export-mode")
+
+    const link = document.createElement("a");
+    link.download = "timesheet.png";
+    link.href = dataUrl;
+    link.click();
+  };
+
   if (!timesheetData) {
     return (
       <div className="error-message">
@@ -33,20 +57,25 @@ const TimesheetPage: FunctionComponent<TimesheetPageProps> = ({
   return (
     <>
       <div className="no-print">
-        <TimesheetTopBar onClearTimesheet={() => setTimesheetData(null)} />
+        <TimesheetTopBar
+          onClearTimesheet={() => setTimesheetData(null)}
+          onExportPng={handleExportPng}
+        />
+
         <WeekendRangeBar
           days={timesheetData.days}
           settings={timesheetData.settings}
           onChangeDays={(nextDays) =>
             setTimesheetData((previousTimesheetData) =>
-              previousTimesheetData ? { ...previousTimesheetData, days: nextDays } : previousTimesheetData
+              previousTimesheetData
+                ? { ...previousTimesheetData, days: nextDays }
+                : previousTimesheetData
             )
           }
         />
-
       </div>
 
-      <div className="print-area">
+      <div ref={exportRef} className="export-area print-area">
         <div className="table-container">
           <EmployeeInfo employee={timesheetData.employee} />
 
