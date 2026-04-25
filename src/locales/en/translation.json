@@ -93,13 +93,14 @@
 }, 
 
 "help": {
-  "title": "How to use the timesheet ?",
+  "title": "How to use the timesheet?",
   "close": "Close",
   "gotIt": "Got it",
   "step1": "Fill the form (name, ID, office, month, hours per day).",
   "step2": "Click “Generate month” to create the table.",
   "step3": "In the table you can change the day status (work/weekend/sick/vacation).",
-  "step4": "Adjust hours for working days and then use “PDF / Print”."
+  "step4": "Adjust hours for working days and save the document as PNG.",
+  "step5": "Don’t forget to sign the form before exporting and sending it to your manager."
 },
 
 "signature": {

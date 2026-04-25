@@ -35,6 +35,7 @@ const HelpModal: FunctionComponent<HelpModalProps> = ({isOpen, onClose}) => {
                             <li>{t("help.step2")}</li>
                             <li>{t("help.step3")}</li>
                             <li>{t("help.step4")}</li>
+                            <li>{t("help.step5")}</li>
                         </ol>
                     </div>
                 </div>
