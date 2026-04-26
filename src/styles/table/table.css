@@ -87,14 +87,21 @@
     background-color: #d7d6d6;
 }
 /* С—До */
-.fromto-cell{
-  display: inline-flex;
+.fromto-cell {
+  display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
+  min-width: 0;
+  white-space: nowrap;
 }
 
-.fromto-cell__time{
+.fromto-cell__time {
   font-weight: 600;
+  min-width: 0;
+}
+
+.col-fromto {
+  min-width: 0;
 }
 
 .fromto-cell__dash{
