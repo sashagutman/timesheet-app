@@ -22,13 +22,18 @@ const TimesheetPage: FunctionComponent<TimesheetPageProps> = ({
   setTimesheetData,
 }) => {
   const exportRef = useRef<HTMLDivElement | null>(null);
-
+  // даём время подписи отрисоваться перед экспортом
+  const wait = (ms: number) =>
+  new Promise((resolve) => setTimeout(resolve, ms));
+  
   const handleExportPng = async () => {
     if (!exportRef.current) return;
      // включаем режим экспорта
     exportRef.current.classList.add("export-mode", "desktop-export")
     exportRef.current.style.width = "1120px";
     exportRef.current.style.minWidth = "1120px"
+
+    await wait(100)
 
     const dataUrl = await toPng(exportRef.current, {
       cacheBust: true,

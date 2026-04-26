@@ -63,6 +63,11 @@
   background: rgba(99, 102, 241, 0.03);
   text-align: center;
   cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .signature-placeholder {

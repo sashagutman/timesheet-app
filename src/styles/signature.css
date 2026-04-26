@@ -1,5 +1,8 @@
 .signature-line img {
   max-height: 100%;
+  
+  display: block;
+  object-fit: contain;
 }
 
 .signature-modal {
