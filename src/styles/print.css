@@ -7,17 +7,21 @@
 }
 
 .export-area {
-  background: rgb(255, 255, 255);
-  padding: 12px;
+  background: #fff;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+/* режим PNG */
+.export-mode {
+  background: #fff;
 }
 
 /* скрываем интерактив */
-.export-mode .hours-cell__controls {
-  display: none;
-}
-
-.export-mode select {
-  display: none;
+.export-mode .hours-cell__controls,
+.export-mode select,
+.export-mode .no-print {
+  display: none !important;
 }
 
 /* показываем текст вместо select */
@@ -29,33 +33,46 @@
   display: none !important;
 }
 
-.export-mode .no-print {
-  display: none !important;
+/* принудительно делаем desktop layout для PNG */
+.desktop-export {
+  width: 1120px !important;
+  max-width: none !important;
+  min-width: 1120px !important;
 }
 
-.desktop-export {
-  width: 1120px;
-  max-width: none;
+.desktop-export .table-container {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+.desktop-export .employee-bar {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+}
+
+.desktop-export .employee-bar__value {
+  font-size: 14px !important;
 }
 
 .desktop-export .timesheet-summary__cards {
+  display: grid !important;
   grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
 }
 
 .desktop-export .timesheet-signatures {
+  display: grid !important;
   grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
 }
 
-.desktop-export .employee-bar {
-  display: flex !important;
-  flex-wrap: nowrap !important;
-}
-
-.desktop-export .employee-bar__item {
-  flex: 1 1 0;
-  min-width: 0;
-}
-
 .desktop-export .timesheet-table {
-  width: 100%;
+  width: 100% !important;
+  table-layout: fixed;
+}
+
+.desktop-export .date-cell {
+  grid-template-columns: 90px 1fr !important;
+}
+
+.desktop-export .status-select {
+  width: 150px !important;
 }

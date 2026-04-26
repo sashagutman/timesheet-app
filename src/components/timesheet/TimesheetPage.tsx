@@ -27,6 +27,8 @@ const TimesheetPage: FunctionComponent<TimesheetPageProps> = ({
     if (!exportRef.current) return;
      // включаем режим экспорта
     exportRef.current.classList.add("export-mode", "desktop-export")
+    exportRef.current.style.width = "1120px";
+    exportRef.current.style.minWidth = "1120px"
 
     const dataUrl = await toPng(exportRef.current, {
       cacheBust: true,
@@ -34,7 +36,9 @@ const TimesheetPage: FunctionComponent<TimesheetPageProps> = ({
       backgroundColor: "rgb(255, 255, 255)",
     });
     // выключаем режим
-    exportRef.current.classList.remove("export-mode", "desktop-export")
+    exportRef.current.classList.remove("export-mode", "desktop-export");
+    exportRef.current.style.width = " ";
+    exportRef.current.style.minWidth = " "
 
     const link = document.createElement("a");
     link.download = "timesheet.png";
