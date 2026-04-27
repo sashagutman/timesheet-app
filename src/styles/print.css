@@ -7,9 +7,12 @@
 }
 
 .export-area {
-  background: #fff;
+  background: rgb(255, 255, 255);
   padding: 24px;
   box-sizing: border-box;
+  margin-top: 5px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
 }
 
 /* режим PNG */
