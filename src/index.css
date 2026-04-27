@@ -87,3 +87,23 @@ flex-direction: row-reverse;
 input[type="time"] {
   direction: ltr;
 }
+
+input[type="date"],
+input[type="time"],
+select {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+@media (max-width: 480px) {
+  input[type="date"],
+  input[type="time"],
+  select {
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+}
