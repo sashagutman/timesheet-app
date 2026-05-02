@@ -4,8 +4,8 @@ A modern React + TypeScript application for generating and managing employee tim
 
 Built as a real-world solution for tracking working hours, generating printable reports, and signing them digitally.
 
-🔗 Live Demo: (********)  
-📂 GitHub Repository: (*******)
+🔗 Live Demo: https://timesheet-app-d22.pages.dev
+📂 GitHub Repository: https://github.com/sashagutman/timesheet-app
 
 ---
 
